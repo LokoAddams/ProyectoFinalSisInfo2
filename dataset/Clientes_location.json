@@ -1,0 +1,35 @@
+{
+	"name": "Clientes_location",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "UnicoBlob",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "1.Bronze"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Clientes_location.csv",
+				"container": "airbnb"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "CID",
+				"type": "String"
+			},
+			{
+				"name": "CNTRY",
+				"type": "String"
+			}
+		]
+	}
+}

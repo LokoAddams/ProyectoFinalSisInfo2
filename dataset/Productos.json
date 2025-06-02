@@ -1,0 +1,47 @@
+{
+	"name": "Productos",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "UnicoBlob",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "1.Bronze"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Productos.csv",
+				"container": "airbnb"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "prd_id",
+				"type": "String"
+			},
+			{
+				"name": "prd_key",
+				"type": "String"
+			},
+			{
+				"name": "prd_nm",
+				"type": "String"
+			},
+			{
+				"name": "prd_cost",
+				"type": "String"
+			},
+			{
+				"name": "prd_line",
+				"type": "String"
+			}
+		]
+	}
+}
