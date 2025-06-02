@@ -1,0 +1,32 @@
+{
+	"name": "TablaClientes_BD",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "1.Bronze"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CID",
+				"type": "varchar"
+			},
+			{
+				"name": "BDATE",
+				"type": "date"
+			},
+			{
+				"name": "GEN",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "clientes_bd"
+		}
+	}
+}
