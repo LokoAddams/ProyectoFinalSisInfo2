@@ -1,0 +1,48 @@
+{
+	"name": "Silver_Clientes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "2.Silver"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "cst_id",
+				"type": "varchar"
+			},
+			{
+				"name": "cst_firstname",
+				"type": "varchar"
+			},
+			{
+				"name": "cst_lastname",
+				"type": "varchar"
+			},
+			{
+				"name": "cst_marital_status",
+				"type": "varchar"
+			},
+			{
+				"name": "genero",
+				"type": "varchar"
+			},
+			{
+				"name": "BDATE",
+				"type": "date"
+			},
+			{
+				"name": "cntry",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "silver",
+			"table": "clientes"
+		}
+	}
+}
