@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "detalle_ventas",
+						"referenceName": "Productos_CAT_MANT",
 						"type": "DataFlowReference"
 					},
 					"compute": {
