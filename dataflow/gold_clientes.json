@@ -1,15 +1,15 @@
 {
-	"name": "Productos_CAT_MANT",
+	"name": "gold_clientes",
 	"properties": {
 		"folder": {
-			"name": "1.Bronze"
+			"name": "3.Gold"
 		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "Productos_CAT_MANT",
+						"referenceName": "Silver_Clientes",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -18,7 +18,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "TableProductos_Cat",
+						"referenceName": "gold_clientes",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -27,21 +27,28 @@
 			"transformations": [],
 			"scriptLines": [
 				"source(output(",
-				"          ID as string,",
-				"          CAT as string,",
-				"          SUBCAT as string,",
-				"          MAINTENANCE as string",
+				"          cst_id as string,",
+				"          cst_firstname as string,",
+				"          cst_lastname as string,",
+				"          cst_marital_status as string,",
+				"          genero as string,",
+				"          BDATE as date,",
+				"          cntry as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source1",
 				"source1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
-				"          ID as string,",
-				"          CAT as string,",
-				"          SUBCAT as string,",
-				"          MAINTENANCE as string",
+				"          cst_id as string,",
+				"          cst_firstname as string,",
+				"          cst_lastname as string,",
+				"          cst_marital_status as string,",
+				"          genero as string,",
+				"          BDATE as date,",
+				"          cntry as string",
 				"     ),",
 				"     deletable:false,",
 				"     insertable:true,",

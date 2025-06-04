@@ -1,0 +1,52 @@
+{
+	"name": "gold_detalle_ventas_FACT_TABLE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "3.Gold"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "sls_ord_num",
+				"type": "varchar"
+			},
+			{
+				"name": "sls_prd_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "sls_cust_id",
+				"type": "varchar"
+			},
+			{
+				"name": "sls_order_dt",
+				"type": "date"
+			},
+			{
+				"name": "sls_ship_dt",
+				"type": "date"
+			},
+			{
+				"name": "sls_quantity",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "sls_price",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			}
+		],
+		"typeProperties": {
+			"schema": "gold",
+			"table": "detalle_ventas"
+		}
+	}
+}

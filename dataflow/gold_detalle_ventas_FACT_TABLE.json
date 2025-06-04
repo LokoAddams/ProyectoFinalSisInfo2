@@ -1,15 +1,15 @@
 {
-	"name": "detalle_ventas",
+	"name": "gold_detalle_ventas_FACT_TABLE",
 	"properties": {
 		"folder": {
-			"name": "1.Bronze"
+			"name": "3.Gold"
 		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "Detalle_ventas",
+						"referenceName": "gold_detalle_ventas_FACT_TABLE",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -18,43 +18,37 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "TableDetalle_Ventas",
+						"referenceName": "gold_detalle_ventas_FACT_TABLE",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
 				}
 			],
-			"transformations": [
-				{
-					"name": "derivedColumn1"
-				}
-			],
+			"transformations": [],
 			"scriptLines": [
 				"source(output(",
 				"          sls_ord_num as string,",
-				"          sls_prd_key as string,",
+				"          sls_prd_id as integer,",
 				"          sls_cust_id as string,",
-				"          sls_order_dt as string,",
-				"          sls_ship_dt as string,",
-				"          sls_sales as string,",
-				"          sls_quantity as string,",
-				"          sls_price as string",
+				"          sls_order_dt as date,",
+				"          sls_ship_dt as date,",
+				"          sls_quantity as integer,",
+				"          sls_price as decimal(18,2)",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 derive(sls_order_dt = toDate(substring(sls_order_dt, 0, 4) + '-' + substring(sls_order_dt, 4, 2) + '-' + substring(sls_order_dt, 6, 2), 'yyyy-MM-dd')\r",
-				",",
-				"          sls_ship_dt = toDate(substring(sls_order_dt, 0, 4) + '-' + substring(sls_order_dt, 4, 2) + '-' + substring(sls_order_dt, 6, 2), 'yyyy-MM-dd')) ~> derivedColumn1",
-				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     procedureName: '',",
+				"     resultSet: true,",
+				"     format: 'procedure') ~> source1",
+				"source1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          sls_ord_num as string,",
-				"          prd_id as integer,",
-				"          sls_cust_id as integer,",
+				"          sls_prd_id as integer,",
+				"          sls_cust_id as string,",
 				"          sls_order_dt as date,",
 				"          sls_ship_dt as date,",
-				"          sls_sales as decimal(18,2),",
 				"          sls_quantity as integer,",
 				"          sls_price as decimal(18,2)",
 				"     ),",

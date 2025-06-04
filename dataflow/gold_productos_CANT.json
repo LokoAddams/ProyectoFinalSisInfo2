@@ -1,15 +1,15 @@
 {
-	"name": "Productos_CAT_MANT",
+	"name": "gold_productos_CANT",
 	"properties": {
 		"folder": {
-			"name": "1.Bronze"
+			"name": "3.Gold"
 		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "Productos_CAT_MANT",
+						"referenceName": "gold_productos_CAT",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -18,7 +18,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "TableProductos_Cat",
+						"referenceName": "gold_productos_CAT",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -34,7 +34,11 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     procedureName: 'LoadProductosCatFromBronzeToGold',",
+				"     schemaName: 'dbo',",
+				"     resultSet: true,",
+				"     format: 'procedure') ~> source1",
 				"source1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",

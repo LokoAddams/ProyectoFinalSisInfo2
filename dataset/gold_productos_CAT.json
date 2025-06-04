@@ -1,0 +1,36 @@
+{
+	"name": "gold_productos_CAT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "3.Gold"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "varchar"
+			},
+			{
+				"name": "CAT",
+				"type": "varchar"
+			},
+			{
+				"name": "SUBCAT",
+				"type": "varchar"
+			},
+			{
+				"name": "MAINTENANCE",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "gold",
+			"table": "productos_cat"
+		}
+	}
+}

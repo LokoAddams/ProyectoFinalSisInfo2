@@ -53,10 +53,6 @@
 			{
 				"name": "sls_price",
 				"type": "String"
-			},
-			{
-				"name": "prd_id",
-				"type": "String"
 			}
 		]
 	}

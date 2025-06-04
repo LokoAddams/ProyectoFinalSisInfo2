@@ -1,15 +1,15 @@
 {
-	"name": "Productos_CAT_MANT",
+	"name": "gold_productos",
 	"properties": {
 		"folder": {
-			"name": "1.Bronze"
+			"name": "3.Gold"
 		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "Productos_CAT_MANT",
+						"referenceName": "silver_productos",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -18,7 +18,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "TableProductos_Cat",
+						"referenceName": "gold_productos",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -27,21 +27,26 @@
 			"transformations": [],
 			"scriptLines": [
 				"source(output(",
+				"          prd_id as integer,",
+				"          prd_key as string,",
 				"          ID as string,",
-				"          CAT as string,",
-				"          SUBCAT as string,",
-				"          MAINTENANCE as string",
+				"          prd_nm as string,",
+				"          prd_cost as decimal(18,2),",
+				"          prd_line as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source1",
 				"source1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
+				"          prd_id as integer,",
+				"          prd_key as string,",
 				"          ID as string,",
-				"          CAT as string,",
-				"          SUBCAT as string,",
-				"          MAINTENANCE as string",
+				"          prd_nm as string,",
+				"          prd_cost as decimal(18,2),",
+				"          prd_line as string",
 				"     ),",
 				"     deletable:false,",
 				"     insertable:true,",
