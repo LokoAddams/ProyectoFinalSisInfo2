@@ -38,7 +38,8 @@
 				"          sls_ship_dt as string,",
 				"          sls_sales as string,",
 				"          sls_quantity as string,",
-				"          sls_price as string",
+				"          sls_price as string,",
+				"          prd_id as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
@@ -50,7 +51,7 @@
 				"     validateSchema: false,",
 				"     input(",
 				"          sls_ord_num as string,",
-				"          sls_prd_key as string,",
+				"          prd_id as integer,",
 				"          sls_cust_id as integer,",
 				"          sls_order_dt as date,",
 				"          sls_ship_dt as date,",
@@ -65,17 +66,7 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError',",
-				"     mapColumn(",
-				"          sls_ord_num,",
-				"          sls_prd_key,",
-				"          sls_cust_id,",
-				"          sls_order_dt,",
-				"          sls_ship_dt,",
-				"          sls_sales,",
-				"          sls_quantity,",
-				"          sls_price",
-				"     )) ~> sink1"
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
 			]
 		}
 	}

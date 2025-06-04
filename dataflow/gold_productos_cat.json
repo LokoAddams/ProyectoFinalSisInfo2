@@ -1,15 +1,15 @@
 {
-	"name": "Productos_CAT_MANT",
+	"name": "gold_productos_cat",
 	"properties": {
 		"folder": {
-			"name": "1.Bronze"
+			"name": "2.Silver"
 		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "Productos_CAT_MANT",
+						"referenceName": "silver_productos_cat",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -18,17 +18,13 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "TableProductos_Cat",
+						"referenceName": "silver_productos_cat",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
 				}
 			],
-			"transformations": [
-				{
-					"name": "derivedColumn1"
-				}
-			],
+			"transformations": [],
 			"scriptLines": [
 				"source(output(",
 				"          ID as string,",
@@ -38,9 +34,12 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 derive(ID = replace(ID,'_', '-')) ~> derivedColumn1",
-				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     procedureName: 'LoadProductosCatFromBronzeToSilver',",
+				"     schemaName: 'dbo',",
+				"     resultSet: true,",
+				"     format: 'procedure') ~> source1",
+				"source1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          ID as string,",

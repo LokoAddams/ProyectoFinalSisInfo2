@@ -1,5 +1,5 @@
 {
-	"name": "temporal",
+	"name": "silver_productos_cat",
 	"properties": {
 		"activities": [
 			{
@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "detalle_ventas",
+						"referenceName": "gold_productos_cat",
 						"type": "DataFlowReference"
 					},
 					"compute": {
@@ -27,6 +27,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "2.Silver"
+		},
 		"annotations": []
 	}
 }
