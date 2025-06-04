@@ -27,7 +27,7 @@
 			"transformations": [],
 			"scriptLines": [
 				"source(output(",
-				"          cst_id as string,",
+				"          cst_id as integer,",
 				"          cst_firstname as string,",
 				"          cst_lastname as string,",
 				"          cst_marital_status as string,",

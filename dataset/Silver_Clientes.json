@@ -13,7 +13,8 @@
 		"schema": [
 			{
 				"name": "cst_id",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "cst_firstname",

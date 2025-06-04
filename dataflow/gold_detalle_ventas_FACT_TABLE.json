@@ -9,7 +9,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "gold_detalle_ventas_FACT_TABLE",
+						"referenceName": "TableDetalle_Ventas",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -28,17 +28,19 @@
 			"scriptLines": [
 				"source(output(",
 				"          sls_ord_num as string,",
-				"          sls_prd_id as integer,",
-				"          sls_cust_id as string,",
+				"          prd_id as integer,",
+				"          sls_cust_id as integer,",
 				"          sls_order_dt as date,",
 				"          sls_ship_dt as date,",
+				"          sls_sales as decimal(18,2),",
 				"          sls_quantity as integer,",
 				"          sls_price as decimal(18,2)",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     procedureName: '',",
+				"     procedureName: 'loadDetalleVentasFromBronzeToGold',",
+				"     schemaName: 'dbo',",
 				"     resultSet: true,",
 				"     format: 'procedure') ~> source1",
 				"source1 sink(allowSchemaDrift: true,",
@@ -59,7 +61,16 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          sls_ord_num,",
+				"          sls_prd_id = prd_id,",
+				"          sls_cust_id,",
+				"          sls_order_dt,",
+				"          sls_ship_dt,",
+				"          sls_quantity,",
+				"          sls_price",
+				"     )) ~> sink1"
 			]
 		}
 	}

@@ -35,7 +35,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     procedureName: 'LoadProductosCatFromBronzeToGold',",
+				"     procedureName: 'LoadProductos_CatFromBronzeToGold',",
 				"     schemaName: 'dbo',",
 				"     resultSet: true,",
 				"     format: 'procedure') ~> source1",
