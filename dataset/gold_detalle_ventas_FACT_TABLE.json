@@ -22,7 +22,8 @@
 			},
 			{
 				"name": "sls_cust_id",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "sls_order_dt",

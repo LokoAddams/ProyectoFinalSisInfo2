@@ -48,7 +48,7 @@
 				"     input(",
 				"          sls_ord_num as string,",
 				"          sls_prd_id as integer,",
-				"          sls_cust_id as string,",
+				"          sls_cust_id as integer,",
 				"          sls_order_dt as date,",
 				"          sls_ship_dt as date,",
 				"          sls_quantity as integer,",
